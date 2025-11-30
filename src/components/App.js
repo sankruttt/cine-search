@@ -4,6 +4,7 @@ import MovieCard from './MovieCard';
 import MovieDetails from './MovieDetails';
 import Pagination from './Pagination';
 import { searchMovies } from '../services/api';
+import logo from '../assets/logo2.png';
 import '../styles/App.css';
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
     <div className="App">
       <header className={`App-header ${hasResults ? 'has-results' : ''}`}>
         <div className="logo-title">
-          <span className="app-logo">🎞️</span>
+          <img src={logo} alt="CineSearch Logo" className="app-logo" />
           <h1>CineSearch</h1>
         </div>
         <MovieSearch onSearch={handleSearch} />

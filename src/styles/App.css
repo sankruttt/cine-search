@@ -1,0 +1,310 @@
+:root {
+  --smart-blue: #0466c8ff;
+  --sapphire: #0353a4ff;
+  --regal-navy: #023e7dff;
+  --prussian-blue: #002855ff;
+  --prussian-blue-2: #001845ff;
+  --prussian-blue-3: #001233ff;
+  --twilight-indigo: #33415cff;
+  --blue-slate: #5c677dff;
+  --slate-grey: #7d8597ff;
+  --lavender-grey: #979dacff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+  color: var(--prussian-blue-2);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80'),
+    url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80'),
+    url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: -1;
+  animation: bgSlide 20s ease-in-out infinite;
+  mix-blend-mode: overlay;
+}
+
+@keyframes bgSlide {
+  0%, 100% {
+    background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80');
+  }
+  33% {
+    background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80');
+  }
+  66% {
+    background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80');
+  }
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  transition: all 0.5s ease;
+  flex: 1;
+}
+
+.App-header.has-results {
+  flex: 0;
+  padding: 30px 20px 20px;
+  background: linear-gradient(180deg, 
+    rgba(227, 242, 253, 0.95) 0%, 
+    rgba(187, 222, 251, 0.90) 50%, 
+    rgba(144, 202, 249, 0.85) 100%);
+  border-bottom: 2px solid rgba(4, 102, 200, 0.3);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(4, 102, 200, 0.15);
+  position: relative;
+}
+
+.App-header.has-results::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.6) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.App-header.has-results::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(144, 202, 249, 0.3));
+  z-index: 0;
+  pointer-events: none;
+}
+
+.App-header.has-results .logo-title,
+.App-header.has-results .search-form {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  transition: all 0.5s ease;
+}
+
+.App-header.has-results .logo-title {
+  margin-bottom: 20px;
+}
+
+.app-logo {
+  font-size: 5rem;
+  line-height: 1;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 40, 85, 0.3));
+}
+
+.App-header.has-results .app-logo {
+  font-size: 3rem;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--prussian-blue-2);
+  transition: all 0.5s ease;
+  letter-spacing: -0.5px;
+}
+
+.App-header.has-results h1 {
+  font-size: 2rem;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 16px 24px;
+  border: 2px solid var(--lavender-grey);
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  background: #ffffff;
+  color: var(--prussian-blue-2);
+  transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: var(--slate-grey);
+}
+
+.search-input:focus {
+  border-color: var(--smart-blue);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(4, 102, 200, 0.15);
+}
+
+.search-button {
+  padding: 16px 40px;
+  background: var(--smart-blue);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-button:hover {
+  background: var(--sapphire);
+}
+
+.search-button:active {
+  transform: translateY(0);
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.loading {
+  color: var(--smart-blue);
+}
+
+.error {
+  color: var(--regal-navy);
+  background: rgba(2, 62, 125, 0.1);
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 1px solid var(--lavender-grey);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 30px 20px;
+  flex-wrap: wrap;
+}
+
+.page-button {
+  padding: 12px 18px;
+  min-width: 44px;
+  background: #ffffff;
+  color: var(--prussian-blue-2);
+  border: 1px solid var(--lavender-grey);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.page-button:hover:not(:disabled) {
+  background: var(--lavender-grey);
+  border-color: var(--smart-blue);
+  color: var(--prussian-blue-2);
+}
+
+.page-button:disabled {
+  background: #f5f7fa;
+  border-color: var(--lavender-grey);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.page-button.active {
+  background: var(--smart-blue);
+  border-color: var(--smart-blue);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .App-header.has-results h1 {
+    font-size: 1.5rem;
+  }
+  
+  .search-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .movies-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}

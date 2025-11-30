@@ -58,3 +58,27 @@
 .view-details-btn:hover {
   background: var(--sapphire);
 }
+
+@media (max-width: 480px) {
+  .movie-poster {
+    height: 280px;
+  }
+
+  .movie-info {
+    padding: 15px;
+  }
+
+  .movie-title {
+    font-size: 1.1rem;
+  }
+
+  .movie-year {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .view-details-btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

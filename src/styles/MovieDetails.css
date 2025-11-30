@@ -153,8 +153,13 @@
 }
 
 @media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
   .modal-content {
     padding: 30px 20px;
+    max-height: 95vh;
   }
   
   .details-container {
@@ -170,5 +175,74 @@
   
   .details-info h2 {
     font-size: 2rem;
+  }
+
+  .rating {
+    font-size: 1.3rem;
+  }
+
+  .plot-section h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 5px;
+  }
+
+  .modal-content {
+    padding: 25px 15px;
+    border-radius: 12px;
+  }
+
+  .close-button {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .details-container {
+    gap: 20px;
+  }
+
+  .details-poster {
+    max-width: 250px;
+  }
+
+  .details-info {
+    min-width: 0;
+  }
+
+  .details-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .rating {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .details-meta {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .details-meta p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .plot-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .plot-section p {
+    font-size: 1rem;
+    line-height: 1.7;
   }
 }

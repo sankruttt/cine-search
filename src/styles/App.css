@@ -312,6 +312,7 @@ body::before {
   color: #fff;
 }
 
+/* Tablet */
 @media (max-width: 768px) {
   .App-header h1 {
     font-size: 2.5rem;
@@ -322,12 +323,120 @@ body::before {
   }
   
   .search-form {
-    flex-direction: column;
-    gap: 12px;
+    width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .search-input {
+    font-size: 16px;
   }
   
   .movies-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    padding: 30px 15px;
+  }
+  
+  .pagination {
+    padding: 20px;
+    gap: 8px;
+  }
+  
+  .page-button {
+    padding: 10px 14px;
+    min-width: 40px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body::before {
+    opacity: 0.4;
+  }
+
+  .App-header {
+    padding: 30px 15px;
+    min-height: 50vh;
+  }
+
+  .App-header.has-results {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .logo-title,
+  .logo-title-container {
+    gap: 8px;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+  }
+
+  .app-logo {
+    width: 75px !important;
+    height: 60px !important;
+  }
+
+  .App-header.has-results .app-logo {
+    width: 60px !important;
+    height: 48px !important;
+  }
+  
+  .App-header h1 {
+    font-size: 2rem;
+  }
+  
+  .App-header.has-results h1 {
+    font-size: 1.2rem;
+  }
+  
+  .search-form {
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    transform: none;
+    padding: 0 15px;
+  }
+
+  .search-input {
+    flex: 1;
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+
+  .search-button {
+    width: auto;
+    padding: 14px 18px;
+    flex-shrink: 0;
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .movies-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  .pagination {
+    padding: 15px 10px;
+    gap: 6px;
+  }
+  
+  .page-button {
+    padding: 8px 12px;
+    min-width: 36px;
+    font-size: 12px;
+  }
+
+  .page-info {
+    font-size: 12px;
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import searchIcon from '../assets/search icon.png';
 
 function MovieSearch({ onSearch }) {
   const [query, setQuery] = useState('');
@@ -18,7 +19,7 @@ function MovieSearch({ onSearch }) {
         className="search-input"
       />
       <button type="submit" className="search-button">
-        Search
+        <img src={searchIcon} alt="Search" className="search-icon" />
       </button>
     </form>
   );

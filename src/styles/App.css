@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Firlest';
+  src: url('../assets/Firlest-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --smart-blue: #0466c8ff;
   --sapphire: #0353a4ff;
@@ -19,7 +26,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 25%, #93c5fd 50%, #60a5fa 75%, #3b82f6 100%);
   color: var(--prussian-blue-2);
   min-height: 100vh;
   position: relative;
@@ -33,27 +40,27 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80'),
+  background-image:
     url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80'),
-    url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80');
+    url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80'), 
+    url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&q=80');
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.6;
   z-index: -1;
-  animation: bgSlide 20s ease-in-out infinite;
-  mix-blend-mode: overlay;
+  animation: bgSlide 25s ease-in-out infinite;
+  mix-blend-mode: soft-light;
 }
 
 @keyframes bgSlide {
   0%, 100% {
-    background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80');
-  }
-  33% {
     background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80');
   }
-  66% {
+  33% {
     background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80');
+  }
+  66% {
+    background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&q=80');
   }
 }
 
@@ -126,7 +133,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 0 px;
   margin-bottom: 30px;
   transition: all 0.5s ease;
 }
@@ -136,8 +143,8 @@ body::before {
 }
 
 .app-logo {
-  width: 90px;
-  height: 80px;
+  width: 120px;
+  height: 90px;
   transition: all 0.5s ease;
   filter: drop-shadow(0 4px 8px rgba(0, 40, 85, 0.3));
 }
@@ -150,10 +157,16 @@ body::before {
 .App-header h1 {
   margin: 0;
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: normal;
+  font-family: 'Firlest', sans-serif;
   color: var(--prussian-blue-2);
   transition: all 0.5s ease;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--prussian-blue-2) 0%, var(--smart-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .App-header.has-results h1 {
@@ -167,6 +180,8 @@ body::before {
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
+  margin-left: calc(50% + 20px);
+  transform: translateX(-50%);
 }
 
 .search-input {
@@ -192,15 +207,22 @@ body::before {
 }
 
 .search-button {
-  padding: 16px 40px;
+  padding: 16px 24px;
   background: var(--smart-blue);
   color: #fff;
   border: none;
   border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 .search-button:hover {
